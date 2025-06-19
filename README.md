@@ -1,73 +1,86 @@
-# Welcome to your Lovable project
+# 🖋️ Quick-Quotes Quill
 
-## Project info
+[![Live Demo](https://img.shields.io/badge/Live_Demo-🚀-blue?style=for-the-badge)](https://quick-quotes-quill.lovable.app/)
 
-**URL**: https://lovable.dev/projects/2ad361d7-1f93-4393-8c18-6e47be3d6b88
+**[Try the Live Demo!](https://quick-quotes-quill.lovable.app/)**
 
-## How can I edit this code?
+![Quick-Quotes Quill](./public/app-screenshot.png)
 
-There are several ways of editing your application.
+Transform your raw notes, transcripts, or interview recordings into polished, ready-to-publish blog posts in seconds! ⚡️ Just paste your content, **highlight the key themes**, and let our AI-powered quill do the writing for you.
 
-**Use Lovable**
+## ✨ Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2ad361d7-1f93-4393-8c18-6e47be3d6b88) and start prompting.
+-   **📝 Smart Text Editor**: Paste any amount of raw text. Our editor is designed to handle large inputs smoothly.
+-   **🎯 Highlight-to-Guide**: Simply select the most important parts of your text to guide the AI.
+-   **🤖 AI-Powered Generation**: Uses the Gemini API to generate a well-structured and coherent blog post based on your highlighted themes.
+-   **💾 Optional Database Integration**: Saves your work automatically to a Supabase backend if configured.
+-   **📋 Easy Export**: Copy the generated markdown to your clipboard or download it as a `.md` file.
+-   **🎨 Sleek UI**: Built with React, Vite, and shadcn/ui for a modern and responsive experience.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Getting Started
 
-**Use your preferred IDE**
+Ready to start generating content? Follow these simple steps to get the project running locally.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+-   [Node.js](https://nodejs.org/en) (v18 or higher)
+-   [npm](https://www.npmjs.com/) (usually comes with Node.js)
+-   A Google AI [Gemini API key](https://aistudio.google.com/app/apikey).
+-   A Supabase account and a project (Optional).
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1.  **Clone the repo**
+    ```sh
+    git clone <YOUR_GIT_URL>
+    cd quick-quotes-quill
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2.  **Install dependencies**
+    ```sh
+    npm install
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3.  **Set up your environment variables & Supabase CLI**
+    -   Copy the example `.env.example` file to a new `.env` file:
+        ```sh
+        cp .env.example .env
+        ```
+    -   Add your API credentials to the `.env` file. (See next section for details).
+    -   **Important:** Open `supabase/config.toml` and replace the existing `project_id` with your own Supabase project ID. This is required to use the Supabase CLI to manage your database migrations.
+        ```toml
+        # supabase/config.toml
+        project_id = "your-new-project-id" # <-- Update this line
+        ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+4.  **Run the development server**
+    ```sh
+    npm run dev
+    ```
 
-**Edit a file directly in GitHub**
+Your app should now be running on `http://localhost:8080`!
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🛠️ Environment Variables
 
-**Use GitHub Codespaces**
+To run the application, you need to provide the following environment variables in a `.env` file at the project root.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The Supabase variables are optional. If they are not provided, the application will still function, but your work will not be saved to a database.
 
-## What technologies are used for this project?
+| Variable                    | Description                                                   |
+| --------------------------- | ------------------------------------------------------------- |
+| `VITE_GEMINI_API_KEY`       | Your API key for the Google Gemini service. **(Required)** |
+| `VITE_SUPABASE_URL`         | Your Supabase project URL. (Optional)                        |
+| `VITE_SUPABASE_ANON_KEY`    | Your Supabase project's public "anon" key. (Optional)        |
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+You can find the Supabase keys in your project's "API Settings".
 
-## How can I deploy this project?
+## 🤝 Contributing
 
-Simply open [Lovable](https://lovable.dev/projects/2ad361d7-1f93-4393-8c18-6e47be3d6b88) and click on Share -> Publish.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Can I connect a custom domain to my Lovable project?
+Please see our **[Contributing Guide](./CONTRIBUTING.md)** for more details on our code of conduct and the process for submitting pull requests.
 
-Yes, you can!
+## 📄 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Distributed under the MIT License. See `LICENSE` for more information.
